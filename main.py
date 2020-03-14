@@ -7,7 +7,7 @@ import os
 logger = logging.getLogger(__name__)
 logging.basicConfig(level='DEBUG')
 
-CHROMEDRIVER_PATH = os.path.join(os.getcwd(), 'chromedriver')
+CHROMEDRIVER_PATH = os.path.join(os.getcwd(), '.chromedriver', 'bin', 'chromedriver')
 if os.path.isfile(CHROMEDRIVER_PATH):
     logger.debug('CHROMEDRIVER_PATH file exists')
 else:
