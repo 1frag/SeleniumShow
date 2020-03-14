@@ -8,6 +8,8 @@ logger = logging.getLogger(__name__)
 logging.basicConfig(level='DEBUG')
 
 CHROMEDRIVER_PATH = os.path.join(os.getcwd(), '.chromedriver', 'bin', 'chromedriver')
+GOOGLE_CHROME_BIN = '/app/.apt/usr/bin/google-chrome'
+
 if os.path.isfile(CHROMEDRIVER_PATH):
     logger.debug('CHROMEDRIVER_PATH file exists')
 else:
@@ -22,6 +24,7 @@ try:
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--headless')
+    chrome_options.binary_location = GOOGLE_CHROME_BIN
 
     browser = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,
                                options=chrome_options)
