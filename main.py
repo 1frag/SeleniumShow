@@ -10,3 +10,4 @@ chrome_options.binary_location = GOOGLE_CHROME_PATH
 
 browser = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,
                            chrome_options=chrome_options)
+browser.close()
