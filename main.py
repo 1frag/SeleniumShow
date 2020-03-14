@@ -6,7 +6,7 @@ import os
 
 logger = logging.getLogger(__name__)
 
-CHROMEDRIVER_PATH = os.path.join(os.getcwd(), 'chromedriver')
+CHROMEDRIVER_PATH = os.path.join(os.getcwd(), 'chromedriverr')
 
 logger.info('preparing...')
 time.sleep(2)
