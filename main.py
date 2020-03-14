@@ -2,24 +2,24 @@ import logging
 from selenium import webdriver
 import traceback
 import time
+import os
 
 logger = logging.getLogger(__name__)
 
-GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
-CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+CHROMEDRIVER_PATH = os.path.join(os.getcwd(), 'chromedriver')
 
 logger.info('preparing...')
-time.sleep(15)
+time.sleep(2)
 logger.info('starting...')
 
 try:
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--no-sandbox')
-    chrome_options.binary_location = GOOGLE_CHROME_PATH
+    chrome_options.add_argument('--headless')
 
     browser = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,
-                               chrome_options=chrome_options)
+                               options=chrome_options)
     browser.close()
 except Exception as e:
     logger.error(f'failed with {e}')
